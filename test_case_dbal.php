@@ -13,7 +13,7 @@ $dotenv->load();
 $connection = DriverManager::getConnection(
     ['url' => "mysql://{$_ENV['DB_USER']}:{$_ENV['DB_PASSWORD']}@{$_ENV['DB_HOST']}:3306/{$_ENV['DB_NAME']}?serverVersion=8.0"]
 );
-$connection->executeQuery('CREATE TABLE IF NOT EXISTS Test (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE `utf8_unicode_ci` ENGINE = InnoDB;');
+$connection->executeQuery('CREATE TABLE IF NOT EXISTS Test (id INT AUTO_INCREMENT NOT NULL, name VARCHAR(255) COLLATE `utf8mb4_unicode_ci` NOT NULL, PRIMARY KEY(id)) DEFAULT COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;');
 $schemaManager = $connection->createSchemaManager();
 $fromSchema = $schemaManager->createSchema();
 
